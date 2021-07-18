@@ -169,14 +169,14 @@ const getSingleCharUTF8Code = (hexArr = [], prefix = "\\x") => {
  * Get UTF8 string.
  * @param {*} str
  */
-exports.encode = (str) => {
+exports.encode = (str, prefix = "\\x") => {
   let res = "";
   const chars = [...str];
 
   if (chars.length > 0) {
     chars.forEach((char) => {
       const charCodePoint = char.codePointAt(0);
-      res += getSingleCharUTF8Code(getUTF8EncodedArr(charCodePoint));
+      res += getSingleCharUTF8Code(getUTF8EncodedArr(charCodePoint), prefix);
     });
   }
 
